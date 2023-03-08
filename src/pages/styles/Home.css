@@ -1,0 +1,39 @@
+.Home {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.Home-header {
+  padding: 40px 80px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.2rem;
+}
+
+.Home-nav {
+  display: flex;
+  gap: 25px;
+}
+
+.Home-nav > span {
+  text-decoration: line-through;
+}
+
+.Home-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.Home-title {
+  font-size: 4rem;
+}
+
+.Home-button {
+  font-size: 1.3rem;
+  padding: 10px 40px;
+}
