@@ -1,5 +1,6 @@
-import './styles/Home.css';
+import { Link } from 'react-router-dom';
 import Arrow from '../assets/arrow-up-right.svg';
+import './styles/Home.css';
 
 function Home() {
   return (
@@ -16,7 +17,10 @@ function Home() {
           <img src={Arrow} alt="" />
         </div>
         <nav className="Home-nav">
-          <span>Rules</span> · <span>Leaderboard</span>
+          <Link to="/rules">
+            <span>Rules</span>
+          </Link>{' '}
+          ·<span>Leaderboard</span>
         </nav>
       </header>
       <main className="Home-main">
