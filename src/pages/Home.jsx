@@ -25,9 +25,11 @@ function Home() {
       </header>
       <main className="Home-main">
         <h1 className="Home-title">Seek and Find</h1>
-        <button className="Home-button" type="button">
-          Start
-        </button>
+        <Link to="/game">
+          <button className="Home-button" type="button">
+            Start
+          </button>
+        </Link>
       </main>
     </div>
   );

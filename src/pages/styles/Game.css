@@ -1,0 +1,40 @@
+.Game {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.Game-header {
+  width: 100%;
+  display: flex;
+}
+
+.Game-headerSide {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Game-headerMain {
+  display: flex;
+  gap: 50px;
+}
+
+.Game-button {
+  padding: 8px 30px;
+  font-size: 1.2rem;
+}
+
+.Game-timer {
+  font-size: 1.4rem;
+  text-decoration: line-through;
+}
+
+.Game-board {
+  max-width: 100%;
+  outline: 2px solid grey;
+  border-radius: 20px;
+}
