@@ -1,11 +1,16 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import getWizardsData from '../utils/getWizardsData';
 import Hogwarts from '../assets/hogwarts.png';
-import Wizard1 from '../assets/wizard1.png';
-import Wizard2 from '../assets/wizard2.png';
-import Wizard3 from '../assets/wizard3.png';
 import './styles/Game.css';
 
 function Game() {
+  const [wizardsData, setWizardsData] = useState(() => getWizardsData());
+
+  const headerWizards = wizardsData.map((wizard) => (
+    <img src={wizard.img} alt="" key={wizard.id} />
+  ));
+
   return (
     <div className="Game">
       <header className="Game-header">
@@ -16,11 +21,7 @@ function Game() {
             </button>
           </Link>
         </div>
-        <div className="Game-headerMain">
-          <img src={Wizard1} alt="" />
-          <img src={Wizard2} alt="" />
-          <img src={Wizard3} alt="" />
-        </div>
+        <div className="Game-headerMain">{headerWizards}</div>
         <div className="Game-headerSide">
           <p className="Game-timer">00:12:34.567</p>
         </div>
