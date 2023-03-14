@@ -1,0 +1,16 @@
+.Popup {
+  position: absolute;
+  background-color: rgba(110, 110, 110, 0.8);
+  border: 2px solid black;
+  border-radius: 10px;
+  display: flex;
+  gap: 5px;
+}
+
+.Popup-entry {
+  cursor: pointer;
+}
+
+.Popup-entry > img {
+  height: 64px;
+}

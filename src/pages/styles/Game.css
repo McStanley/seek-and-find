@@ -33,6 +33,10 @@
   text-decoration: line-through;
 }
 
+.Game-main {
+  position: relative;
+}
+
 .Game-board {
   max-width: 100%;
   outline: 2px solid grey;
