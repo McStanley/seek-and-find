@@ -1,18 +1,27 @@
 import PropTypes from 'prop-types';
 import './styles/Popup.css';
 
-function Popup({ position, wizardsData }) {
+function Popup({ position, wizardsData, checkSelection }) {
   const styles = {
     left: `${position.x * 100}%`,
     top: `${position.y * 100}%`,
   };
 
+  const handleClick = (id) => {
+    checkSelection(id);
+  };
+
   const activeWizards = wizardsData.filter((wizard) => wizard.active);
 
   const entries = activeWizards.map((wizard) => (
-    <article className="Popup-entry" key={wizard.id}>
+    <button
+      className="Popup-entry"
+      type="button"
+      key={wizard.id}
+      onClick={() => handleClick(wizard.id)}
+    >
       <img src={wizard.img} alt="" />
-    </article>
+    </button>
   ));
 
   return (
@@ -40,6 +49,7 @@ Popup.propTypes = {
       active: PropTypes.bool.isRequired,
     })
   ).isRequired,
+  checkSelection: PropTypes.func.isRequired,
 };
 
 export default Popup;

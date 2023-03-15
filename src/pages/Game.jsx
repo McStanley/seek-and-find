@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import getWizardsData from '../utils/getWizardsData';
+import isWizardFound from '../utils/isWizardFound';
 import Popup from '../components/Popup';
 import Hogwarts from '../assets/hogwarts.png';
 import './styles/Game.css';
@@ -23,6 +24,35 @@ function Game() {
     };
 
     setClickPosition(position);
+  };
+
+  const checkSelection = (id) => {
+    const wizard = wizardsData.find((entry) => entry.id === id);
+    const isFound = isWizardFound(clickPosition, wizard.position);
+
+    if (!isFound) {
+      alert('Keep looking!');
+
+      setClickPosition(null);
+      return;
+    }
+
+    alert('Good job!');
+
+    setWizardsData((prevWizardsData) =>
+      prevWizardsData.map((entry) => {
+        if (entry.id === id) {
+          return {
+            ...entry,
+            active: false,
+          };
+        }
+
+        return entry;
+      })
+    );
+
+    setClickPosition(null);
   };
 
   const headerWizards = wizardsData.map((wizard) => (
@@ -54,7 +84,11 @@ function Game() {
           onClick={handleClick}
         />
         {clickPosition && (
-          <Popup position={clickPosition} wizardsData={wizardsData} />
+          <Popup
+            position={clickPosition}
+            wizardsData={wizardsData}
+            checkSelection={checkSelection}
+          />
         )}
       </main>
     </div>
