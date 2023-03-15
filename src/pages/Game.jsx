@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-hot-toast';
 import getWizardsData from '../utils/getWizardsData';
 import isWizardFound from '../utils/isWizardFound';
 import isGameOver from '../utils/isGameOver';
@@ -13,7 +14,15 @@ function Game() {
 
   useEffect(() => {
     if (isGameOver(wizardsData)) {
-      alert('Game Over!');
+      toast.dismiss();
+
+      toast('You won!', {
+        duration: 6000,
+        icon: '🎉',
+        style: {
+          fontSize: '1.5rem',
+        },
+      });
     }
   }, [wizardsData]);
 
@@ -38,13 +47,13 @@ function Game() {
     const isFound = isWizardFound(clickPosition, wizard.position);
 
     if (!isFound) {
-      alert('Keep looking!');
+      toast.error('Keep looking!');
 
       setClickPosition(null);
       return;
     }
 
-    alert('Good job!');
+    toast.success('Good job!');
 
     setWizardsData((prevWizardsData) =>
       prevWizardsData.map((entry) => {

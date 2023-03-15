@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
 import Home from './pages/Home';
 import Rules from './pages/Rules';
 import Game from './pages/Game';
@@ -11,6 +12,16 @@ function App() {
         <Route path="/rules" element={<Rules />} />
         <Route path="/game" element={<Game />} />
       </Routes>
+      <Toaster
+        position="bottom-center"
+        reverseOrder
+        toastOptions={{
+          duration: 3000,
+          style: {
+            fontSize: '1.1rem',
+          },
+        }}
+      />
     </BrowserRouter>
   );
 }
