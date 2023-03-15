@@ -56,7 +56,12 @@ function Game() {
   };
 
   const headerWizards = wizardsData.map((wizard) => (
-    <img src={wizard.img} alt="" key={wizard.id} />
+    <img
+      src={wizard.img}
+      alt=""
+      style={wizard.active ? {} : { filter: 'grayscale(1)' }}
+      key={wizard.id}
+    />
   ));
 
   return (
