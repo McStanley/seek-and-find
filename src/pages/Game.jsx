@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import getWizardsData from '../utils/getWizardsData';
 import isWizardFound from '../utils/isWizardFound';
+import isGameOver from '../utils/isGameOver';
 import Popup from '../components/Popup';
 import Hogwarts from '../assets/hogwarts.png';
 import './styles/Game.css';
@@ -9,6 +10,12 @@ import './styles/Game.css';
 function Game() {
   const [wizardsData, setWizardsData] = useState(() => getWizardsData());
   const [clickPosition, setClickPosition] = useState(null);
+
+  useEffect(() => {
+    if (isGameOver(wizardsData)) {
+      alert('Game Over!');
+    }
+  }, [wizardsData]);
 
   const handleClick = (e) => {
     if (clickPosition) {
