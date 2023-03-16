@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useStopwatch } from 'react-timer-hook';
 import { toast } from 'react-hot-toast';
 import getWizardsData from '../utils/getWizardsData';
 import isWizardFound from '../utils/isWizardFound';
@@ -11,9 +12,17 @@ import './styles/Game.css';
 function Game() {
   const [wizardsData, setWizardsData] = useState(() => getWizardsData());
   const [clickPosition, setClickPosition] = useState(null);
+  const {
+    seconds,
+    minutes,
+    hours,
+    pause: pauseStopwatch,
+  } = useStopwatch({ autoStart: true });
 
   useEffect(() => {
     if (isGameOver(wizardsData)) {
+      pauseStopwatch();
+
       toast.dismiss();
 
       toast('You won!', {
@@ -92,7 +101,11 @@ function Game() {
         </div>
         <div className="Game-headerMain">{headerWizards}</div>
         <div className="Game-headerSide">
-          <p className="Game-timer">00:12:34.567</p>
+          <p className="Game-timer">
+            {hours.toString().padStart(2, '0')} :{' '}
+            {minutes.toString().padStart(2, '0')} :{' '}
+            {seconds.toString().padStart(2, '0')}
+          </p>
         </div>
       </header>
       <main className="Game-main">

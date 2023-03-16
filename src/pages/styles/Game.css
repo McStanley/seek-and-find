@@ -29,8 +29,8 @@
 }
 
 .Game-timer {
-  font-size: 1.4rem;
-  text-decoration: line-through;
+  font-size: 1.6rem;
+  letter-spacing: 1px;
 }
 
 .Game-main {
