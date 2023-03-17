@@ -6,10 +6,13 @@ import getWizardsData from '../utils/getWizardsData';
 import isWizardFound from '../utils/isWizardFound';
 import isGameOver from '../utils/isGameOver';
 import Popup from '../components/Popup';
+import Overlay from '../components/Overlay';
+import GameOver from '../components/GameOver';
 import Hogwarts from '../assets/hogwarts.png';
 import './styles/Game.css';
 
 function Game() {
+  const [isOver, setIsOver] = useState(false);
   const [wizardsData, setWizardsData] = useState(() => getWizardsData());
   const [clickPosition, setClickPosition] = useState(null);
   const {
@@ -17,6 +20,7 @@ function Game() {
     minutes,
     hours,
     pause: pauseStopwatch,
+    reset: resetStopwatch,
   } = useStopwatch({ autoStart: true });
 
   useEffect(() => {
@@ -32,8 +36,17 @@ function Game() {
           fontSize: '1.5rem',
         },
       });
+
+      setIsOver(true);
     }
   }, [wizardsData]);
+
+  const restart = () => {
+    const newWizardsData = getWizardsData();
+    setWizardsData(newWizardsData);
+    resetStopwatch();
+    setIsOver(false);
+  };
 
   const handleClick = (e) => {
     if (clickPosition) {
@@ -125,6 +138,14 @@ function Game() {
           />
         )}
       </main>
+      {isOver && (
+        <Overlay>
+          <GameOver
+            time={hours * 3600 + minutes * 60 + seconds}
+            restart={restart}
+          />
+        </Overlay>
+      )}
     </div>
   );
 }

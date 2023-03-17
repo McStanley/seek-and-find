@@ -1,0 +1,29 @@
+.GameOver {
+  width: 600px;
+  padding: 25px 25px 50px;
+  background-color: rgb(39, 39, 39);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+}
+
+.GameOver-header {
+  font-size: 2rem;
+}
+
+.GameOver-text {
+  font-size: 1.2rem;
+}
+
+.GameOver-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.GameOver-home,
+.GameOver-restart {
+  padding: 8px 16px;
+  font-size: 1.2rem;
+}
