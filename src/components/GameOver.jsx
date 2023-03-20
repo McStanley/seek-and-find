@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import SaveScore from './SaveScore';
 import './styles/GameOver.css';
 
 function GameOver({ time, restart }) {
@@ -9,6 +10,7 @@ function GameOver({ time, restart }) {
       <p className="GameOver-text">
         You have found all the wizards in <b>{time}</b> seconds.
       </p>
+      <SaveScore score={time} />
       <div className="GameOver-buttons">
         <Link to="/">
           <button className="GameOver-home" type="button">
