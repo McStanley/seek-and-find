@@ -7,7 +7,7 @@ import Game from './pages/Game';
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/seek-and-find">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/rules" element={<Rules />} />
