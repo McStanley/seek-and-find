@@ -1,0 +1,58 @@
+.Leaderboard {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+}
+
+.Leaderboard-title {
+  font-size: 3rem;
+}
+
+.Leaderboard-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
+
+.Leaderboard-entry {
+  width: 550px;
+  padding: 12px 24px 12px 12px;
+  border: 2px solid grey;
+  border-radius: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+}
+
+.Leaderboard-entryUser {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.Leaderboard-entryImg {
+  height: 64px;
+  border-radius: 50%;
+}
+
+.Leaderboard-entryName {
+  font-size: 1.1rem;
+}
+
+.Leaderboard-entryScore {
+  font-size: 1.6rem;
+}
+
+.Leaderboard-secondsLabel {
+  color: rgb(180, 180, 180);
+  font-size: 1.4rem;
+}
+
+.Leaderboard-button {
+  padding: 5px 25px;
+  font-size: 1.2rem;
+}

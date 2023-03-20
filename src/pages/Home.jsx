@@ -17,10 +17,8 @@ function Home() {
           <img src={Arrow} alt="" />
         </div>
         <nav className="Home-nav">
-          <Link to="/rules">
-            <span>Rules</span>
-          </Link>{' '}
-          ·<span>Leaderboard</span>
+          <Link to="/rules">Rules</Link> ·
+          <Link to="/leaderboard">Leaderboard</Link>
         </nav>
       </header>
       <main className="Home-main">
