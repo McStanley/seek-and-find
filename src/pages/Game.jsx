@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useStopwatch } from 'react-timer-hook';
 import { toast } from 'react-hot-toast';
@@ -15,6 +15,7 @@ function Game() {
   const [isOver, setIsOver] = useState(false);
   const [wizardsData, setWizardsData] = useState(() => getWizardsData());
   const [clickPosition, setClickPosition] = useState(null);
+  const boardRef = useRef(null);
   const {
     seconds,
     minutes,
@@ -129,12 +130,14 @@ function Game() {
           src={Hogwarts}
           alt=""
           onClick={handleClick}
+          ref={boardRef}
         />
         {clickPosition && (
           <Popup
             position={clickPosition}
             wizardsData={wizardsData}
             checkSelection={checkSelection}
+            boardRef={boardRef}
           />
         )}
       </main>
