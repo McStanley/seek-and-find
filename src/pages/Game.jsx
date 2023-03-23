@@ -9,6 +9,7 @@ import Popup from '../components/Popup';
 import Overlay from '../components/Overlay';
 import GameOver from '../components/GameOver';
 import Hogwarts from '../assets/hogwarts.png';
+import Arrow from '../assets/arrow-up-right.svg';
 import './styles/Game.css';
 
 function Game() {
@@ -141,6 +142,17 @@ function Game() {
           />
         )}
       </main>
+      <footer className="Game-footer">
+        Artwork by{' '}
+        <a
+          href="https://www.behance.net/soumatheus"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Matheus Souza
+        </a>
+        <img src={Arrow} alt="" />
+      </footer>
       {isOver && (
         <Overlay>
           <GameOver
